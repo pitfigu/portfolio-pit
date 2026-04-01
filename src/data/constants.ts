@@ -246,7 +246,7 @@ export const EXPERIENCE: Experience[] = [
     company: "Amazon",
     description: [
       "Building internal tools with global impact — from enterprise web apps to desktop automation and AI-powered solutions.",
-      "Created a VAT validation tool adopted by 199 users within 24 hours, processing 270K+ validations with 99.5% uptime.",
+      "Created a VAT validation tool used by global teams — 2M+ VAT IDs validated to date with 99.5% uptime.",
       "Built My S3 Drive in Rust — a standalone app mounting S3 buckets as native Windows drives, replacing third-party tools org-wide.",
       "Developed AVA Excel AI — an AI-powered Excel add-in with 1,888 uses in 30 days across global compliance teams.",
       "Extensive AWS systems management including S3, Lambda, IAM, and internal deployment platforms.",

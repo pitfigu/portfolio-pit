@@ -103,7 +103,7 @@ const projects: Project[] = [
       return (
         <div>
           <TypographyP className="font-mono text-2xl text-center">
-            Enterprise VAT Validation — 270K+ validations, 199 users in 24h
+            Enterprise VAT Validation — 2M+ VAT IDs checked to date
           </TypographyP>
           <TypographyP className="font-mono">
             Proactively identified a critical organizational pain point — teams manually validating
@@ -113,11 +113,10 @@ const projects: Project[] = [
           </TypographyP>
           <TypographyH3 className="my-4 mt-8">Impact</TypographyH3>
           <ul className="list-disc ml-6 font-mono space-y-2">
-            <li>199 unique users adopted organically within 24 hours of launch</li>
-            <li>270,433 validation requests processed (1,360 avg per user)</li>
-            <li>21% cache hit rate — 56,153 instant results via smart 30-day caching</li>
-            <li>99.5% uptime with zero technical issues</li>
-            <li>Eliminated thousands of hours of manual work organization-wide</li>
+            <li>2,000,000+ VAT IDs validated to date across global teams</li>
+            <li>199 users adopted organically within 24 hours of launch</li>
+            <li>Smart 30-day caching delivering instant results for repeat validations</li>
+            <li>99.5% uptime — eliminated thousands of hours of manual work org-wide</li>
           </ul>
           <TypographyH3 className="my-4 mt-8">Technical</TypographyH3>
           <ul className="list-disc ml-6 font-mono space-y-2">
