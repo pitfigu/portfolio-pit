@@ -22,6 +22,7 @@ export enum SkillNames {
   SQL = "sql",
   SUPABASE = "supabase",
   REDIS = "redis",
+  RUST = "rust",
 }
 export type Skill = {
   id: number;
@@ -216,6 +217,14 @@ export const SKILLS: Record<SkillNames, Skill> = {
     color: "#dc382d",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
   },
+  [SkillNames.RUST]: {
+    id: 24,
+    name: "rust",
+    label: "Rust",
+    shortDescription: "Systems programming — fast, safe, and zero-cost abstractions 🦀",
+    color: "#dea584",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg",
+  },
 };
 
 export type Experience = {
@@ -236,11 +245,11 @@ export const EXPERIENCE: Experience[] = [
     title: "Process Automation Engineer & Full Stack Developer",
     company: "Amazon",
     description: [
-      "Designed and built 10+ internal automation tools (Python, VBA, React, Node.js) reducing task handling time by 85%.",
-      "Developed enterprise VAT validation system processing hundreds of VAT numbers across 4 European tax authority APIs.",
-      "Built AI-powered Excel add-in integrating OpenAI for intelligent data analysis and formatting.",
-      "Created internal app distribution platform (PythonHub) serving 80+ team members with auto-update capabilities.",
-      "Architected web-based org portal with React/TypeScript and Intrastat analysis tools with Python/PyInstaller.",
+      "Building internal tools with global impact — from enterprise web apps to desktop automation and AI-powered solutions.",
+      "Created a VAT validation tool adopted by 199 users within 24 hours, processing 270K+ validations with 99.5% uptime.",
+      "Built My S3 Drive in Rust — a standalone app mounting S3 buckets as native Windows drives, replacing third-party tools org-wide.",
+      "Developed AVA Excel AI — an AI-powered Excel add-in with 1,888 uses in 30 days across global compliance teams.",
+      "Extensive AWS systems management including S3, Lambda, IAM, and internal deployment platforms.",
     ],
     skills: [
       SkillNames.PYTHON,
@@ -260,10 +269,9 @@ export const EXPERIENCE: Experience[] = [
     title: "Freelance Full Stack Developer",
     company: "Self-employed",
     description: [
-      "Built full-stack ticket booking platform with NestJS, PostgreSQL, Mollie payments, and HubSpot CRM integration.",
-      "Developed chess education platform (PandaChessLab) with Next.js, Supabase, and GDPR-compliant data handling.",
-      "Created autonomous trading engine (TradeFish) with Python, Redis, ML pipelines, and Streamlit dashboard.",
-      "Shipped multiple client projects including AI chat installations, browser games, and tax calculation tools.",
+      "Designing and shipping full-stack web applications for clients across industries — from fintech to education and events.",
+      "Built production ticket booking platforms, chess education tools, and autonomous trading engines.",
+      "End-to-end ownership: architecture, development, deployment, and maintenance.",
     ],
     skills: [
       SkillNames.REACT,

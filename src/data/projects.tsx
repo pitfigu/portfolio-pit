@@ -17,6 +17,7 @@ import {
   SiPostgresql,
   SiPython,
   SiRedis,
+  SiRust,
   SiShadcnui,
   SiSocketdotio,
   SiStreamlit,
@@ -71,8 +72,7 @@ const PROJECT_SKILLS = {
   react: { title: "React.js", bg: "black", fg: "white", icon: <RiReactjsFill /> },
   redis: { title: "Redis", bg: "black", fg: "white", icon: <SiRedis /> },
   streamlit: { title: "Streamlit", bg: "black", fg: "white", icon: <SiStreamlit /> },
-  spline: { title: "Spline", bg: "black", fg: "white", icon: <SiThreedotjs /> },
-  framerMotion: { title: "Framer Motion", bg: "black", fg: "white", icon: <TbBrandFramerMotion /> },
+  rust: { title: "Rust", bg: "black", fg: "white", icon: <SiRust /> },
   vba: { title: "VBA / Excel", bg: "black", fg: "white", icon: <span className="font-bold text-sm">VBA</span> },
   aws: { title: "AWS", bg: "black", fg: "white", icon: <span className="font-bold text-sm">AWS</span> },
 };
@@ -90,12 +90,12 @@ export type Project = {
 const projects: Project[] = [
   {
     id: "vat-checker",
-    category: "Enterprise Tool",
-    title: "VAT Checker",
+    category: "Enterprise Tool @ Amazon",
+    title: "VAT ID Checker",
     src: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop",
     screenshots: [],
     skills: {
-      frontend: [PROJECT_SKILLS.python, PROJECT_SKILLS.vba],
+      frontend: [PROJECT_SKILLS.python, PROJECT_SKILLS.js],
       backend: [PROJECT_SKILLS.aws],
     },
     live: "",
@@ -103,28 +103,66 @@ const projects: Project[] = [
       return (
         <div>
           <TypographyP className="font-mono text-2xl text-center">
-            Enterprise VAT Validation System — Built at Amazon
+            Enterprise VAT Validation — 270K+ validations, 199 users in 24h
           </TypographyP>
           <TypographyP className="font-mono">
-            A production-grade desktop application for batch-validating VAT numbers across
-            multiple European tax authorities. Processes hundreds of VAT numbers efficiently
-            with multi-API support, caching, and enterprise security features.
+            Proactively identified a critical organizational pain point — teams manually validating
+            European VAT numbers through tax authority websites. Built an internal web tool that
+            transformed multi-step manual processes into a drag-and-drop interface: validate 1000+
+            VAT numbers with three clicks.
           </TypographyP>
-          <TypographyH3 className="my-4 mt-8">Multi-API Support</TypographyH3>
+          <TypographyH3 className="my-4 mt-8">Impact</TypographyH3>
           <ul className="list-disc ml-6 font-mono space-y-2">
-            <li><strong>German BZSt</strong> — Official German tax authority API</li>
-            <li><strong>EU VIES</strong> — European VAT Information Exchange System</li>
-            <li><strong>Poland MF</strong> — Polish Ministry of Finance</li>
-            <li><strong>UK HMRC</strong> — UK tax authority (post-Brexit)</li>
+            <li>199 unique users adopted organically within 24 hours of launch</li>
+            <li>270,433 validation requests processed (1,360 avg per user)</li>
+            <li>21% cache hit rate — 56,153 instant results via smart 30-day caching</li>
+            <li>99.5% uptime with zero technical issues</li>
+            <li>Eliminated thousands of hours of manual work organization-wide</li>
           </ul>
-          <TypographyH3 className="my-4 mt-8">Key Features</TypographyH3>
+          <TypographyH3 className="my-4 mt-8">Technical</TypographyH3>
           <ul className="list-disc ml-6 font-mono space-y-2">
-            <li>Bulk validation processing hundreds of VAT numbers per batch</li>
-            <li>Excel import/export with multi-sheet support</li>
-            <li>Qualified and simple validation modes</li>
-            <li>Intelligent caching system for 10x faster repeated validations</li>
-            <li>XSS prevention, file validation, and malicious file detection</li>
-            <li>Also deployed as AWS Lambda + web interface via Harmony platform</li>
+            <li>Integrated VIES API and BZSt API with automated company data enrichment</li>
+            <li>Smart caching layer eliminating redundant API calls</li>
+            <li>Desktop app (Python/PyInstaller) + AWS Lambda web deployment</li>
+          </ul>
+        </div>
+      );
+    },
+  },
+  {
+    id: "my-s3-drive",
+    category: "Infrastructure Tool @ Amazon",
+    title: "My S3 Drive",
+    src: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&h=600&fit=crop",
+    screenshots: [],
+    skills: {
+      frontend: [PROJECT_SKILLS.rust],
+      backend: [PROJECT_SKILLS.aws],
+    },
+    live: "",
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono text-2xl text-center">
+            S3 as a native Windows drive — built from scratch in Rust
+          </TypographyP>
+          <TypographyP className="font-mono">
+            Teams across the organization used different third-party solutions (ExpanDrive, WinSCP)
+            to access AWS S3 buckets — creating compliance risks, licensing costs, and inconsistent
+            workflows. Self-taught Rust and built a complete standalone application enabling direct
+            S3 access through Windows Explorer.
+          </TypographyP>
+          <TypographyH3 className="my-4 mt-8">What it does</TypographyH3>
+          <ul className="list-disc ml-6 font-mono space-y-2">
+            <li>Mounts S3 buckets as native Windows drives (R:, S:, etc.)</li>
+            <li>Users access cloud storage exactly like local hard drives with any Windows application</li>
+            <li>Supports multiple AWS profiles, buckets, and S3-compatible services</li>
+          </ul>
+          <TypographyH3 className="my-4 mt-8">Impact</TypographyH3>
+          <ul className="list-disc ml-6 font-mono space-y-2">
+            <li>Eliminated licensing costs for third-party tools</li>
+            <li>Resolved compliance issues and standardized S3 access org-wide</li>
+            <li>Zero training required — works seamlessly with existing workflows</li>
           </ul>
         </div>
       );
@@ -132,8 +170,8 @@ const projects: Project[] = [
   },
   {
     id: "excel-ai",
-    category: "AI Tool",
-    title: "Excel AI Add-in",
+    category: "AI Tool @ Amazon",
+    title: "AVA Excel AI",
     src: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=800&h=600&fit=crop",
     screenshots: [],
     skills: {
@@ -145,54 +183,25 @@ const projects: Project[] = [
       return (
         <div>
           <TypographyP className="font-mono text-2xl text-center">
-            AI-Powered Excel Add-in — Built at Amazon
+            AI-powered Excel analysis — 1,888 uses in 30 days globally
           </TypographyP>
           <TypographyP className="font-mono">
-            An intelligent Excel add-in that integrates OpenAI directly into spreadsheets.
-            Features a sidebar chat interface, smart data analysis, and automated formatting —
-            turning Excel into an AI-powered data workstation.
+            Transformed a basic Word AI feature into a sophisticated Excel analysis tool. Users
+            query spreadsheet data in plain English — &quot;What is the total Amount for each
+            Country?&quot; — and receive instant, professionally formatted results. No formulas
+            or pivot tables needed.
           </TypographyP>
-          <TypographyH3 className="my-4 mt-8">Features</TypographyH3>
+          <TypographyH3 className="my-4 mt-8">Impact</TypographyH3>
           <ul className="list-disc ml-6 font-mono space-y-2">
-            <li>Embedded AI chat sidebar within Excel</li>
-            <li>Intelligent data analysis and pattern recognition</li>
-            <li>Automated formatting with AI-suggested layouts</li>
-            <li>Custom VBA event handlers for seamless integration</li>
-            <li>Progress tracking UI for long-running operations</li>
+            <li>1,888 uses in 30 days across global compliance teams</li>
+            <li>Transformed hours of manual analysis into seconds</li>
+            <li>Made advanced data analysis accessible to non-technical users</li>
           </ul>
-        </div>
-      );
-    },
-  },
-  {
-    id: "pythonhub",
-    category: "Internal Platform",
-    title: "PythonHub (ITX Apps Hub)",
-    src: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=600&fit=crop",
-    screenshots: [],
-    skills: {
-      frontend: [PROJECT_SKILLS.python],
-      backend: [],
-    },
-    live: "",
-    get content() {
-      return (
-        <div>
-          <TypographyP className="font-mono text-2xl text-center">
-            Internal App Distribution Platform — Built at Amazon
-          </TypographyP>
-          <TypographyP className="font-mono">
-            A network drive-based application distribution system for internal Python tools.
-            Serves 80+ team members with a modern launcher UI, automatic updates, and
-            zero-configuration deployment. Dark/light theme, card-based interface.
-          </TypographyP>
-          <TypographyH3 className="my-4 mt-8">Features</TypographyH3>
+          <TypographyH3 className="my-4 mt-8">Technical</TypographyH3>
           <ul className="list-disc ml-6 font-mono space-y-2">
-            <li>Auto-discovery of apps from network drive with metadata.json</li>
-            <li>One-click install and automatic update detection via timestamps</li>
-            <li>Modern tkinter UI with dark/light theme toggle</li>
-            <li>PyInstaller-compiled standalone executable</li>
-            <li>Zero cloud dependencies — runs entirely on local + network storage</li>
+            <li>Smart data sampling for large datasets with automatic format detection</li>
+            <li>Embedded directly within Excel — no context switching</li>
+            <li>Custom VBA event handlers with HTML/JS sidebar interface</li>
           </ul>
         </div>
       );
@@ -209,25 +218,23 @@ const projects: Project[] = [
       backend: [PROJECT_SKILLS.python, PROJECT_SKILLS.redis, PROJECT_SKILLS.postgres, PROJECT_SKILLS.docker],
     },
     live: "",
-    github: "https://github.com/pitfigu",
     get content() {
       return (
         <div>
           <TypographyP className="font-mono text-2xl text-center">
-            Autonomous multi-horizon trading engine powered by swarm intelligence
+            Autonomous trading engine with ML and swarm intelligence
           </TypographyP>
           <TypographyP className="font-mono">
-            TradeFish is an autonomous trading engine that uses AI and swarm intelligence
-            to execute multi-horizon trading strategies. Built with Python, it integrates
-            with Alpaca for market data and order execution, uses Redis for job queues,
-            and PostgreSQL for persistent storage.
+            A multi-horizon trading engine that combines machine learning with swarm intelligence
+            for autonomous strategy execution. Integrates with Alpaca for market data and order
+            execution, uses Redis for job queues, and PostgreSQL for persistent storage.
           </TypographyP>
-          <TypographyH3 className="my-4 mt-8">Key Features</TypographyH3>
+          <TypographyH3 className="my-4 mt-8">Technical</TypographyH3>
           <ul className="list-disc ml-6 font-mono space-y-2">
-            <li>ML-powered predictions using PyTorch, Stable Baselines3, and scikit-learn</li>
-            <li>Real-time market data via WebSockets and Alpaca API</li>
+            <li>ML predictions via PyTorch, Stable Baselines3, and scikit-learn</li>
+            <li>Real-time market data via WebSockets</li>
             <li>Streamlit dashboard for monitoring and visualization</li>
-            <li>Fully containerized with Docker for reproducible deployments</li>
+            <li>Fully containerized with Docker</li>
           </ul>
         </div>
       );
@@ -236,7 +243,7 @@ const projects: Project[] = [
   {
     id: "oceanbeat-tickets",
     category: "Ticket Booking Platform",
-    title: "OceanBeat Ticket System",
+    title: "OceanBeat Tickets",
     src: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&h=600&fit=crop",
     screenshots: [],
     skills: {
@@ -244,23 +251,22 @@ const projects: Project[] = [
       backend: [PROJECT_SKILLS.nestjs, PROJECT_SKILLS.ts, PROJECT_SKILLS.postgres, PROJECT_SKILLS.docker],
     },
     live: "",
-    github: "https://github.com/pitfigu",
     get content() {
       return (
         <div>
-          <TypographyP className="font-mono">
-            A full-featured event ticket booking platform built for OceanBeat boat parties.
-            Handles the complete lifecycle from browsing events to purchasing tickets with
-            QR codes, payment processing via Mollie, and CRM integration with HubSpot.
+          <TypographyP className="font-mono text-2xl text-center">
+            Full-stack event ticket platform with payments and CRM
           </TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
-          <TypographyH3 className="my-4 mt-8">Features</TypographyH3>
+          <TypographyP className="font-mono">
+            End-to-end ticket booking system for OceanBeat boat parties. Handles event browsing,
+            ticket purchasing with QR codes, Mollie payment processing, and HubSpot CRM integration.
+          </TypographyP>
+          <TypographyH3 className="my-4 mt-8">Technical</TypographyH3>
           <ul className="list-disc ml-6 font-mono space-y-2">
-            <li>Secure payment processing via Mollie payment gateway</li>
-            <li>QR code ticket generation with PDF download</li>
-            <li>HubSpot CRM integration for customer management</li>
-            <li>JWT authentication with role-based access control</li>
-            <li>NestJS backend with TypeORM, PostgreSQL, Swagger docs</li>
+            <li>NestJS backend with TypeORM and PostgreSQL</li>
+            <li>Mollie payment gateway with webhook handling</li>
+            <li>QR code ticket generation with PDF export</li>
+            <li>JWT auth with role-based access control</li>
           </ul>
         </div>
       );
@@ -277,22 +283,23 @@ const projects: Project[] = [
       backend: [PROJECT_SKILLS.flask, PROJECT_SKILLS.python, PROJECT_SKILLS.postgres],
     },
     live: "",
-    github: "https://github.com/pitfigu",
     get content() {
       return (
         <div>
-          <TypographyP className="font-mono">
-            A Flask web application for calculating Spanish IRPF double-taxation deductions
-            on Amazon RSU income. Handles ECB foreign exchange rates, PDF parsing of tax
-            documents, and generates Word exports for tax filing. Deployed on Railway.
+          <TypographyP className="font-mono text-2xl text-center">
+            Spanish IRPF double-taxation calculator for RSU income
           </TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
-          <TypographyH3 className="my-4 mt-8">Features</TypographyH3>
+          <TypographyP className="font-mono">
+            Flask web app calculating Art. 80 LIRPF double-taxation deductions on Amazon RSU income.
+            Integrates ECB foreign exchange rates, parses tax PDFs, and generates Word document
+            exports for tax filing.
+          </TypographyP>
+          <TypographyH3 className="my-4 mt-8">Technical</TypographyH3>
           <ul className="list-disc ml-6 font-mono space-y-2">
-            <li>Art. 80 LIRPF double-taxation deduction calculator</li>
             <li>ECB FX rate integration for currency conversion</li>
             <li>PDF parsing and Word document export</li>
-            <li>CI/CD via GitHub Actions with automated testing</li>
+            <li>CI/CD via GitHub Actions</li>
+            <li>Deployed on Railway</li>
           </ul>
         </div>
       );
@@ -309,22 +316,23 @@ const projects: Project[] = [
       backend: [PROJECT_SKILLS.supabase, PROJECT_SKILLS.postgres],
     },
     live: "",
-    github: "https://github.com/pitfigu",
     get content() {
       return (
         <div>
-          <TypographyP className="font-mono">
-            A chess education platform connecting trainers with students. Features appointment
-            scheduling, module-based learning paths, progress tracking, and integrated chess
-            platform connections. Built with Next.js and Supabase with full GDPR compliance.
+          <TypographyP className="font-mono text-2xl text-center">
+            Chess education platform with trainer-student matching
           </TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
-          <TypographyH3 className="my-4 mt-8">Features</TypographyH3>
+          <TypographyP className="font-mono">
+            Connects chess trainers with students through appointment scheduling, module-based
+            learning paths, and progress tracking. Built with Next.js and Supabase with full
+            GDPR/DSGVO compliance.
+          </TypographyP>
+          <TypographyH3 className="my-4 mt-8">Technical</TypographyH3>
           <ul className="list-disc ml-6 font-mono space-y-2">
-            <li>Trainer-student matching with appointment proposals</li>
-            <li>Module-based learning system with progress tracking</li>
+            <li>Next.js with Supabase auth and real-time subscriptions</li>
             <li>Chess platform integration (Lichess, Chess.com)</li>
-            <li>GDPR/DSGVO compliant data handling</li>
+            <li>Module-based learning system with progress tracking</li>
+            <li>GDPR-compliant data handling</li>
           </ul>
         </div>
       );
@@ -341,23 +349,17 @@ const projects: Project[] = [
       backend: [],
     },
     live: "",
-    github: "https://github.com/pitfigu",
     get content() {
       return (
         <div>
-          <TypographyP className="font-mono">
-            A poetic, terminal-inspired chat website for an art installation. Visitors interact
-            with an AI persona via QR code. Terminal aesthetic with glitch effects, connected
-            to OpenAI with a custom system prompt. Built with Next.js 16 and Tailwind CSS.
+          <TypographyP className="font-mono text-2xl text-center">
+            Terminal-inspired AI chat for an art installation
           </TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
-          <TypographyH3 className="my-4 mt-8">Features</TypographyH3>
-          <ul className="list-disc ml-6 font-mono space-y-2">
-            <li>Mobile-first, accessible, minimal UI</li>
-            <li>Terminal/monospaced aesthetic with glitch and scanline effects</li>
-            <li>Custom chat interface connected to OpenAI API</li>
-            <li>Built with Next.js 16 and Tailwind CSS</li>
-          </ul>
+          <TypographyP className="font-mono">
+            A poetic chat website where visitors interact with an AI persona via QR code.
+            Terminal aesthetic with glitch and scanline effects, connected to OpenAI with
+            a custom system prompt. Built with Next.js and Tailwind CSS.
+          </TypographyP>
         </div>
       );
     },
