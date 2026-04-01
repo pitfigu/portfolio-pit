@@ -3,7 +3,7 @@
 import { useInView } from "framer-motion";
 import React, { useRef } from "react";
 import { Button } from "../ui/button";
-import { SiGithub, SiInstagram, SiLinkedin, SiX } from "react-icons/si";
+import { SiGithub, SiInstagram } from "react-icons/si";
 import { config } from "@/data/config";
 import Link from "next/link";
 
@@ -13,21 +13,15 @@ const BUTTONS = [
     href: config.social.github,
     icon: <SiGithub size={"24"} color={"#fff"} />,
   },
-  {
-    name: "LinkedIn",
-    href: config.social.linkedin,
-    icon: <SiLinkedin size={"24"} color={"#fff"} />,
-  },
-  {
-    name: "Twitter",
-    href: config.social.twitter,
-    icon: <SiX size={"24"} color={"#fff"} />,
-  },
-  {
-    name: "Instagram",
-    href: config.social.instagram,
-    icon: <SiInstagram size={"24"} color={"#fff"} />,
-  },
+  ...(config.social.instagram
+    ? [
+        {
+          name: "Instagram",
+          href: config.social.instagram,
+          icon: <SiInstagram size={"24"} color={"#fff"} />,
+        },
+      ]
+    : []),
 ];
 
 const SocialMediaButtons = () => {

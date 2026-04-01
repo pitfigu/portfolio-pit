@@ -1,45 +1,45 @@
 const config = {
-  title: "Naresh Khatri | Full-Stack Developer",
+  title: "pitfigu | Full Stack Developer",
   description: {
-    long: "Explore the portfolio of Naresh, a full-stack developer and creative technologist specializing in interactive web experiences, 3D animations, and innovative projects. Discover my latest work, including Coding Ducks, The Booking Desk, Ghostchat, and more. Let's build something amazing together!",
+    long: "Explore the portfolio of pitfigu, a full-stack developer and process automation engineer based in Barcelona. From enterprise automation tools and AI-powered Excel add-ins to trading engines and ticket booking platforms — discover innovative projects built with Python, TypeScript, React, and more.",
     short:
-      "Discover the portfolio of Naresh, a full-stack developer creating interactive web experiences and innovative projects.",
+      "Portfolio of pitfigu — full-stack developer building automation tools, web apps, and AI-powered solutions.",
   },
   keywords: [
-    "Naresh",
+    "pitfigu",
     "portfolio",
     "full-stack developer",
-    "creative technologist",
+    "process automation",
     "web development",
-    "3D animations",
-    "interactive websites",
-    "Coding Ducks",
-    "The Booking Desk",
-    "Ghostchat",
-    "web design",
-    "GSAP",
+    "Python",
+    "TypeScript",
     "React",
     "Next.js",
-    "Spline",
-    "Framer Motion",
+    "Node.js",
+    "NestJS",
+    "Docker",
+    "AWS",
+    "AI tools",
+    "VBA",
+    "Barcelona",
   ],
-  author: "Naresh Khatri",
-  email: "naresh.khatri2345@gmail.com",
-  site: "https://nareshkhatri.site",
+  author: "pit figu",
+  email: "pit@figueiras.de",
+  site: "https://pitfigueiras.vercel.app",
 
   // for github stars button
-  githubUsername: "naresh-khatri",
+  githubUsername: "pitfigu",
   githubRepo: "3d-portfolio",
 
   get ogImg() {
     return this.site + "/assets/seo/og-image.png";
   },
   social: {
-    twitter: "https://x.com/nothotchaddi",
-    linkedin: "https://www.linkedin.com/in/naresh-khatri/",
-    instagram: "https://www.instagram.com/hotchaddi",
-    facebook: "https://www.facebook.com/HotChaddi/",
-    github: "https://github.com/Naresh-Khatri",
+    twitter: "",
+    linkedin: "",
+    instagram: "https://www.instagram.com/pitfigu",
+    facebook: "",
+    github: "https://github.com/pitfigu",
   },
 };
 export { config };
